@@ -9,7 +9,7 @@ WORKDIR /app
 ADD requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
-USER 1001
+#USER 1001
 
 # Copy our code from the current folder to /app inside the container
 ADD . /app
