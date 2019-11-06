@@ -64,7 +64,7 @@ body{
   vertical-align:middle;
   font-size:40px;
   font-weight: 600;
-  width: 750px;
+  width: 450px;
   height: 200px;
 }
 #choice a{
@@ -88,12 +88,12 @@ body{
   text-transform: uppercase;
 }
 
-#choice .choice.docker{
+#choice .choice.kube{
   color: #00cbca;
   float: right;
 }
 
-#choice .choice.kube{
+#choice .choice.ocp{
   color: #2196f3;
   float: left;
 }
