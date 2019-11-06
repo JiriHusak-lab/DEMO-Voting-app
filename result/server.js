@@ -37,7 +37,7 @@ async.retry(
     if (err) {
       return console.error("Giving up");
     }
-    console.log("Connected to db - JH Trace");
+    console.log("Connected to db - JH Trace 001");
     getVotes(client);
   }
 );
