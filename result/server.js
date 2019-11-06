@@ -58,7 +58,7 @@ function getVotes(client) {
 }
 
 function collectVotesFromResult(result) {  
-  var votes = {a: 0, b: 0};
+  var votes = {a: 0, b: 0, c: 0};
 
   console.log("collectVotesFromResult(" + result + ")");
   result.rows.forEach(function (row) {
