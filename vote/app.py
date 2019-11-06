@@ -35,8 +35,8 @@ def hello():
         'index.html',
         option_a=option_a,
         option_b=option_b,
-#        hostname=hostname,
-	hostname=hostname,
+		option_c=option_c,
+        hostname=hostname,
         debugstr='DEBUG 003 vote=' + str(vote) + ' voter_id:' + str(voter_id) + ' option_a:' + str(option_a),
         vote=str(vote)
     ))
