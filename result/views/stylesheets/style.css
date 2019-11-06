@@ -76,9 +76,9 @@ body{
 }
 
 #choice .choice{
-  width: 49%;
+  width: 60%;
   position: relative;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
   text-align: left;
   padding-left: 50px;
@@ -88,14 +88,19 @@ body{
   text-transform: uppercase;
 }
 
-#choice .choice.dogs{
+#choice .choice.docker{
   color: #00cbca;
   float: right;
 }
 
-#choice .choice.cats{
+#choice .choice.kube{
   color: #2196f3;
   float: left;
+}
+
+#choice .choice.ocp{
+  color: #00cbca;
+  float: right;
 }
 #background-stats{
   z-index:1;
