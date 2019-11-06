@@ -1,7 +1,8 @@
 var express = require('express'),
     async = require('async'),
-    pg = require("pg"),
-    path = require("path"),
+    pg = require('pg'),
+    { Pool } = require('pg'),
+    path = require('path'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
@@ -22,11 +23,14 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
+var pool = new pg.Pool({
+  connectionString: 'postgres://postgres@db/postgres'
+});
+
 async.retry(
   {times: 1000, interval: 1000},
   function(callback) {
-    console.log("callback");
-    pg.connect('postgres://postgres@db/postgres', function(err, client, done) {
+    pool.connect(function(err, client, done) {
       if (err) {
         console.error("Waiting for db");
       }
@@ -37,30 +41,27 @@ async.retry(
     if (err) {
       return console.error("Giving up");
     }
-    console.log("Connected to db - JH Trace 001");
+    console.log("Connected to db");
     getVotes(client);
   }
 );
 
 function getVotes(client) {
-  console.log("getVotes(" + client + ")");
   client.query('SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote', [], function(err, result) {
     if (err) {
       console.error("Error performing query: " + err);
     } else {
       var votes = collectVotesFromResult(result);
       io.sockets.emit("scores", JSON.stringify(votes));
-      console.log("scores" + JSON.stringify(votes));
     }
 
     setTimeout(function() {getVotes(client) }, 1000);
   });
 }
 
-function collectVotesFromResult(result) {  
-  var votes = {a: 0, b: 0, c: 0};
+function collectVotesFromResult(result) {
+  var votes = {a: 0, b: 0};
 
-  console.log("collectVotesFromResult(" + result + ")");
   result.rows.forEach(function (row) {
     votes[row.vote] = parseInt(row.count);
   });
