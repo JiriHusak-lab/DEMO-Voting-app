@@ -76,9 +76,9 @@ body{
 }
 
 #choice .choice{
-  width: 60%;
+  width: 49%;
   position: relative;
-  top: 30%;
+  top: 50%;
   transform: translateY(-50%);
   text-align: left;
   padding-left: 50px;
@@ -96,11 +96,6 @@ body{
 #choice .choice.kube{
   color: #2196f3;
   float: left;
-}
-
-#choice .choice.ocp{
-  color: #00cbca;
-  float: right;
 }
 #background-stats{
   z-index:1;
