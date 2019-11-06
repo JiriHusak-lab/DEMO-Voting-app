@@ -37,7 +37,7 @@ def hello():
 #        hostname=hostname,
 	hostname='DEBUG 001' + str(vote),
 	debugstr='DEBUG 001 vote=' + str(vote),
-        vote=vote,
+        vote=str(vote)
     ))
     resp.set_cookie('voter_id', voter_id)
     return resp
