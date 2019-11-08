@@ -15,5 +15,5 @@ COPY . /app
 ENV PORT 80
 EXPOSE 80
 
-#CMD ["node", "server.js"]
-CMD exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"
+CMD ["node", "server.js"]
+#CMD exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"
