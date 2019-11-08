@@ -12,7 +12,8 @@ RUN npm install \
  && mv /app/node_modules /node_modules
 COPY . /app
 
-ENV PORT 80
-EXPOSE 80
+#ENV PORT 80
+#EXPOSE 80
 
-CMD ["node", "server.js"]
+#CMD ["node", "server.js"]
+CMD exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"
