@@ -11,6 +11,7 @@ RUN npm install \
  && npm cache clean --force \
  && mv /app/node_modules /node_modules
 COPY . /app
+RUN chmod 755 /app/result_live_chk.sh
 
 ENV PORT 80
 EXPOSE 80
